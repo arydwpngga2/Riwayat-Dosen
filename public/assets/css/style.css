@@ -1,0 +1,395 @@
+:root {
+  --bg: #faf8f4;
+  --ink: #1d1b18;
+  --mute: #837d73;
+  --line: #e4dfd5;
+  --accent: #1f4d3f;
+  --soft: #f1ede4;
+  --serif:
+    "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    "Times New Roman", serif;
+  --sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151412;
+    --ink: #ece8df;
+    --mute: #9a948a;
+    --line: #2c2a26;
+    --accent: #8fc4ae;
+    --soft: #1d1b18;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.65 var(--sans);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+header.top {
+  padding: 28px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+header.top a:hover {
+  color: var(--ink);
+}
+
+.hero {
+  padding: 96px 0 40px;
+}
+.hero h1 {
+  font: 400 clamp(2.1rem, 6vw, 3.1rem)/1.12 var(--serif);
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+}
+.hero p {
+  margin: 0;
+  color: var(--mute);
+  max-width: 46ch;
+}
+body.is-detail .hero {
+  display: none;
+}
+body.is-results .hero {
+  padding: 56px 0 28px;
+}
+
+form.search {
+  position: relative;
+  margin: 0 0 8px;
+}
+form.search input {
+  width: 100%;
+  padding: 14px 96px 14px 0;
+  font: 400 1.15rem var(--serif);
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  border-radius: 0;
+  outline: none;
+}
+form.search input::placeholder {
+  color: var(--mute);
+  font-style: italic;
+}
+form.search input:focus {
+  border-bottom-color: var(--accent);
+  box-shadow: 0 1px 0 var(--accent);
+}
+form.search button {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  padding: 4px 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: 500 0.78rem var(--sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+form.search button:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.note {
+  margin: 28px 0;
+  padding: 12px 16px;
+  border-left: 2px solid var(--accent);
+  background: var(--soft);
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+.count {
+  margin: 36px 0 4px;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+ul.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul.list li {
+  border-bottom: 1px solid var(--line);
+}
+ul.list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 18px 0;
+}
+ul.list .nama {
+  font: 400 1.25rem/1.3 var(--serif);
+}
+ul.list .info {
+  color: var(--mute);
+  font-size: 0.88rem;
+  margin-top: 2px;
+}
+ul.list .arrow {
+  color: var(--mute);
+  transition:
+    transform 0.2s,
+    color 0.2s;
+}
+ul.list a:hover .arrow {
+  transform: translateX(4px);
+  color: var(--accent);
+}
+ul.list a:hover .nama {
+  color: var(--accent);
+}
+
+.back {
+  display: inline-block;
+  margin: 40px 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.back:hover {
+  color: var(--ink);
+}
+.profile {
+  padding: 28px 0 36px;
+  border-bottom: 1px solid var(--line);
+}
+.profile h1 {
+  font: 400 clamp(1.9rem, 5vw, 2.6rem)/1.15 var(--serif);
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  color: var(--mute);
+  font-size: 0.9rem;
+}
+.facts b {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+section.block {
+  padding: 40px 0 0;
+}
+section.block h2 {
+  margin: 0 0 22px;
+  font: 500 0.78rem var(--sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+ol.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 22px;
+  border-left: 1px solid var(--line);
+}
+ol.timeline li {
+  position: relative;
+  padding: 0 0 30px;
+}
+ol.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -27px;
+  top: 0.6em;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+}
+ol.timeline li:first-child::before {
+  background: var(--accent);
+}
+.year {
+  font-size: 0.82rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+.jenjang {
+  font: 400 1.3rem/1.3 var(--serif);
+  margin: 2px 0;
+}
+.jenjang small {
+  font: 400 0.95rem var(--sans);
+  color: var(--mute);
+}
+.pt {
+  color: var(--ink);
+}
+.bidang {
+  color: var(--mute);
+  font-size: 0.92rem;
+}
+dl.kv {
+  margin: 0;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 2px 16px;
+  font-size: 0.9rem;
+}
+dl.kv dt {
+  color: var(--mute);
+}
+dl.kv dd {
+  margin: 0;
+}
+
+table.mk {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+table.mk th {
+  text-align: left;
+  font: 500 0.72rem var(--sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute);
+  padding: 0 8px 10px 0;
+  border-bottom: 1px solid var(--ink);
+}
+table.mk td {
+  padding: 11px 8px 11px 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+table.mk td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  padding-right: 0;
+}
+table.mk th.num {
+  text-align: right;
+  padding-right: 0;
+}
+.empty {
+  color: var(--mute);
+  font-style: italic;
+}
+.scroll {
+  overflow-x: auto;
+}
+
+footer {
+  margin-top: 88px;
+  padding: 24px 0 48px;
+  border-top: 1px solid var(--line);
+  color: var(--mute);
+  font-size: 0.78rem;
+}
+@media (max-width: 520px) {
+  .page {
+    padding: 0 18px;
+  }
+  .hero {
+    padding-top: 64px;
+  }
+}
+
+/* Riwayat mengajar: per semester */
+.semester {
+  margin: 0 0 34px;
+}
+.semester h3 {
+  margin: 0 0 12px;
+  font: 400 1.15rem/1.3 var(--serif);
+}
+.badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: 500 0.72rem var(--sans);
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  vertical-align: middle;
+  text-transform: none;
+}
+section.block h2 .badge {
+  letter-spacing: 0.02em;
+}
+table.mk td .empty {
+  font-style: normal;
+  opacity: 0.6;
+}
+details.raw {
+  margin-top: 24px;
+  font-size: 0.8rem;
+  color: var(--mute);
+}
+details.raw pre {
+  overflow-x: auto;
+  padding: 12px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+/* Tombol unduh */
+a.dl {
+  display: inline-block;
+  font: 500 0.78rem var(--sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 1px;
+}
+a.dl:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.dlrow {
+  margin: 0 0 16px;
+}
+.count {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
